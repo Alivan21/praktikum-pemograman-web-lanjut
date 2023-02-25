@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,20 +18,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/', function ($id) {
-  echo "Selamat Datang ini artikel ke $id";
+Route::get('/', function () {
+  return view('welcome');
 });
 
 Route::get('/about', function () {
-  echo "Nama: Alfan Olivan <br> NIM: 2141720078";
+  return view('about');
 });
 
-Route::get('/articles/{id}', function ($id) {
-  echo "Ini adalah artikel ke-$id";
+Route::group(['prefix' => 'products'], function () {
+  Route::get('/', [ProductsController::class, 'index'])->name('products');
+  Route::get('/{id}', [ProductsController::class, 'detail']);
 });
 
-Route::get('/hello', [WelcomeController::class, 'hello']);
+Route::group(['prefix' => 'news'], function () {
+  Route::get('/', [NewsController::class, 'index'])->name('news');
+  Route::get('/{id}', [NewsController::class, 'detail']);
+});
+
+Route::group(['prefix' => 'program'], function () {
+  Route::get('/', [ProgramController::class, 'index'])->name('programs');
+  Route::get('/{id}', [ProgramController::class, 'detail']);
+});
+
+Route::resource('contact', ContactController::class)->names([
+  'index' => 'contact'
+]);

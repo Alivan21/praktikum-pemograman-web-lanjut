@@ -9,6 +9,7 @@
 
   <!-- Fonts -->
   <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
   <!-- Styles -->
   <style>
@@ -79,10 +80,6 @@
 
     .flex {
       display: flex
-    }
-
-    .flex-col {
-      flex-direction: column
     }
 
     .grid {
@@ -397,24 +394,7 @@
 <body class="antialiased">
   <div
     class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-    <div class="flex flex-col ml-4 text-lg leading-loose font-semibold dark:text-white">
-      <h1>List of Our Services</h1>
-      <a href="/products">
-        Products
-      </a>
-      <a href="/news">
-        News
-      </a>
-      <a href="/program">
-        Program
-      </a>
-      <a href="/about">
-        About
-      </a>
-      <a href="/contact">
-        Contact
-      </a>
-    </div>
+    @yield('content')
   </div>
 </body>
 

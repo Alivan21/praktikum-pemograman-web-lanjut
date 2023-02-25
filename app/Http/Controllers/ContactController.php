@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\WelcomeModel;
 use Illuminate\Http\Request;
 
-class WelcomeController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +13,7 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    public function hello()
-    {
-        return 'Hello World';
+        return view('contact');
     }
 
     /**
@@ -46,10 +40,10 @@ class WelcomeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\WelcomeModel  $welcomeModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(WelcomeModel $welcomeModel)
+    public function show($id)
     {
         //
     }
@@ -57,10 +51,10 @@ class WelcomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\WelcomeModel  $welcomeModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(WelcomeModel $welcomeModel)
+    public function edit($id)
     {
         //
     }
@@ -69,10 +63,10 @@ class WelcomeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\WelcomeModel  $welcomeModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, WelcomeModel $welcomeModel)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -80,10 +74,10 @@ class WelcomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\WelcomeModel  $welcomeModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(WelcomeModel $welcomeModel)
+    public function destroy($id)
     {
         //
     }
