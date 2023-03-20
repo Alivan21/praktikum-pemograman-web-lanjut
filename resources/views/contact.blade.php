@@ -1,13 +1,15 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('content')
-  <div class="d-flex flex-col dark:text-white">
-    <div class="flex flex-col align-items-center items-center">
+  <div class="text-white d-flex flex-column gap-4">
+    <div class="d-flex align-items-center gap-3">
       <a href="/">
         <i class="bi bi-arrow-left-circle-fill" style="font-size: 2rem"></i>
       </a>
-      <h1>Back</h1>
+      <h1 class="text-white my-auto">Contact Us</h1>
     </div>
-    <h1>Ini Halaman Contact</h1>
+    <div class="d-flex">
+      <p class="text-white">Ini Halaman Contact</p>
+    </div>
   </div>
 @endsection

@@ -6,36 +6,36 @@ use Illuminate\Http\Request;
 
 class ProgramController extends Controller
 {
-    public $programs = [
-        [
+  public $programs = [
+    [
 
-            'program' => 'karir',
-            'slug' => 'karir'
-        ],
-        [
-            'program' => 'Magang',
-            'slug' => 'magang'
-        ],
-        [
-            'program' => 'Kunjungan Industri',
-            'slug' => 'kunjungan-industri'
-        ]
-    ];
+      'program' => 'Karir',
+      'slug' => 'karir'
+    ],
+    [
+      'program' => 'Magang',
+      'slug' => 'magang'
+    ],
+    [
+      'program' => 'Kunjungan Industri',
+      'slug' => 'kunjungan-industri'
+    ]
+  ];
 
-    public function index()
-    {
-        $programs = $this->programs;
-        return view('program.index', compact('programs'));
-    }
+  public function index()
+  {
+    $programs = $this->programs;
+    return view('program.index', compact('programs'));
+  }
 
-    public function detail($param)
-    {
-        $program = $this->programs;
-        $param = array_search($param, array_column($program, 'slug'));
-        $param = $program[$param];
-        return view('program.detail', [
-            'param' => $param,
-            'back' => 'programs'
-        ]);
-    }
+  public function detail($param)
+  {
+    $program = $this->programs;
+    $param = array_search($param, array_column($program, 'slug'));
+    $param = $program[$param];
+    return view('program.detail', [
+      'param' => $param,
+      'back' => 'programs'
+    ]);
+  }
 }
