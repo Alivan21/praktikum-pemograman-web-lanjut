@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Alfan Olivan | Views</title>
+  <title>Alfan Olivan | Model</title>
 
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -16,9 +16,9 @@
   @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body class="container-fluid bg-dark">
+<body class="container-fluid bg-secondary">
   <main class="d-flex justify-content-center align-items-center min-vh-100">
-    <div class="border border-white rounded-2 p-5">
+    <div class="bg-dark border border-dark rounded-2 p-5">
       @yield('content')
     </div>
   </main>
