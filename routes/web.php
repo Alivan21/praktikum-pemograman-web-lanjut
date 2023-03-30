@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +19,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('index');
 });
+
+Route::get('/about', function () {
+  return view('about');
+});
+
+Route::group(['prefix' => 'products'], function () {
+  Route::get('/', [ProductsController::class, 'index'])->name('products');
+  Route::get('/{id}', [ProductsController::class, 'show']);
+});
+
+Route::group(['prefix' => 'news'], function () {
+  Route::get('/', [NewsController::class, 'index'])->name('news');
+  Route::get('/{id}', [NewsController::class, 'detail']);
+});
+
+Route::group(['prefix' => 'program'], function () {
+  Route::get('/', [ProgramController::class, 'index'])->name('programs');
+  Route::get('/{id}', [ProgramController::class, 'detail']);
+});
+
+Route::resource('contact', ContactController::class)->names([
+  'index' => 'contact'
+]);
