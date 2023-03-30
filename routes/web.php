@@ -28,7 +28,7 @@ Route::get('/about', function () {
 
 Route::group(['prefix' => 'products'], function () {
   Route::get('/', [ProductsController::class, 'index'])->name('products');
-  Route::get('/{id}', [ProductsController::class, 'detail']);
+  Route::get('/{id}', [ProductsController::class, 'show']);
 });
 
 Route::group(['prefix' => 'news'], function () {

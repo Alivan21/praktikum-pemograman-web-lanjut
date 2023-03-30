@@ -11,8 +11,8 @@
     <ul class="d-flex flex-column gap-3 text-white mx-3">
       @foreach ($products as $product)
         <li>
-          <a href="products/{{ $product['slug'] }}" class="fs-4 text-decoration-none">
-            {{ $product['product'] }}
+          <a href="products/{{ $product->id }}" class="fs-4 text-decoration-none">
+            {{ $product->name }}
           </a>
         </li>
       @endforeach
