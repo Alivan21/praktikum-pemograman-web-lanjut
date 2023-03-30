@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\WelcomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,20 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/', function ($id) {
-  echo "Selamat Datang ini artikel ke $id";
+Route::get('/', function () {
+  return view('welcome');
 });
 
-Route::get('/about', function () {
-  echo "Nama: Alfan Olivan <br> NIM: 2141720078";
-});
+Auth::routes();
 
-Route::get('/articles/{id}', function ($id) {
-  echo "Ini adalah artikel ke-$id";
-});
-
-Route::get('/hello', [WelcomeController::class, 'hello']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
