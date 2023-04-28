@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('mahasiswa.index');
+});
+
+Route::get('/detail', function () {
+  return view('mahasiswa.detail');
+});
+
+Route::get('/create', function () {
+  return view('mahasiswa.create');
 });
