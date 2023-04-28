@@ -11,9 +11,9 @@
         <form action="{{ route('mahasiswa.index') }}" method="GET"
           class="d-flex justify-content-between align-items-center">
           <div class="input-group">
-            <button class="btn btn-secondary mr-3 rounded" type="submit" id="button-addon1">Cari</button>
             <input type="text" class="form-control rounded" name="nama" value="{{ request('nama') }}"
               placeholder="masukkan nama">
+            <button class="btn btn-secondary ml-3 rounded" type="submit" id="button-addon1">Cari</button>
           </div>
           <div class="input-group justify-content-end">
             <a class="btn btn-success" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>

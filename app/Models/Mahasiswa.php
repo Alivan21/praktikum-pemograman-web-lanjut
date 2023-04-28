@@ -22,4 +22,11 @@ class Mahasiswa extends Model
   ];
 
   public $timestamps = false;
+
+  public function scopeFilter($query, array $filters)
+  {
+    if (isset($filters['nama']) ? $filters['nama'] : false) {
+      return $query->where('nama', 'like', '%' . $filters['nama'] . '%');
+    }
+  }
 }

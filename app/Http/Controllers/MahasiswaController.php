@@ -10,21 +10,9 @@ class MahasiswaController extends Controller
   public function index(Request $request)
   {
     //mengambil data dari model mahasiswa
-    // $mahasiswas = Mahasiswa::all();
-    $search = request('nama');
-
-    if (!empty($search)) {
-      $mahasiswas = Mahasiswa::where(
-        'nama',
-        'like',
-        "%$search%"
-      )->paginate(5);
-    } else {
-      $mahasiswas = Mahasiswa::paginate(5);
-    }
-
-    return view('mahasiswas.index', compact('mahasiswas'))
-      ->with('i', (request()->input('page', 1) - 1) * 5);
+    return view('mahasiswas.index', [
+      'mahasiswas' => Mahasiswa::filter($request->only('nama'))->paginate(5),
+    ]);
   }
 
   public function create()
