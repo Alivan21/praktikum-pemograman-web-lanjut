@@ -11,13 +11,10 @@ class Mahasiswa extends Model
 
   protected $table = 'mahasiswa';
 
+  protected $guarded = ['id'];
+
   public function kelas()
   {
     return $this->belongsTo(Kelas::class);
-  }
-
-  public function jurusan()
-  {
-    return $this->belongsTo(Jurusan::class);
   }
 }

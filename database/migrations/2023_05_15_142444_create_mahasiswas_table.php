@@ -17,7 +17,6 @@ return new class extends Migration
       $table->id();
       $table->string('nim', 10)->unique();
       $table->string('nama_mahasiswa', 63);
-      $table->foreignId('jurusan_id')->constrained('jurusan')->restrictOnDelete();
       $table->foreignId('kelas_id')->constrained('kelas')->restrictOnDelete();
       $table->timestamps();
     });

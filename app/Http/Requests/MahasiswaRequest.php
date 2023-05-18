@@ -13,7 +13,7 @@ class MahasiswaRequest extends FormRequest
    */
   public function authorize()
   {
-    return false;
+    return true;
   }
 
   /**
@@ -26,7 +26,7 @@ class MahasiswaRequest extends FormRequest
     return [
       'nim' => 'required|unique:mahasiswa,nim|numeric|digits:10',
       'nama_mahasiswa' => 'required',
-      'jurusan' => 'required',
+      'kelas_id' => 'required',
     ];
   }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MahasiswaRequest;
 use App\Models\Jurusan;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
@@ -36,9 +37,10 @@ class MahasiswaController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(MahasiswaRequest $request)
   {
-    //
+    Mahasiswa::create($request->validated());
+    return redirect()->route('mahasiswa.index')->with('success', 'Mahasiswa berhasil ditambahkan!');
   }
 
   /**
@@ -83,6 +85,7 @@ class MahasiswaController extends Controller
    */
   public function destroy(Mahasiswa $mahasiswa)
   {
-    //
+    $mahasiswa->delete();
+    return redirect()->route('mahasiswa.index')->with('delete', 'Mahasiswa berhasil dihapus');
   }
 }

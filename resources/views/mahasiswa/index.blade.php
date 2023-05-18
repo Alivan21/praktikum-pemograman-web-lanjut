@@ -9,6 +9,7 @@
       </a>
       <x-search-bar />
     </div>
+    @include('components.alert')
     <div class="relative overflow-x-auto">
       <table class="rounded border w-full text-sm text-left text-gray-500 ">
         <thead class="text-gray-700 uppercase bg-gray-50">
@@ -48,7 +49,10 @@
               <td class="px-6 py-4 flex gap-2 font-semibold">
                 <a href="#" class="text-blue-600 hover:underline">Show</a>
                 <a href="#" class="text-yellow-400 hover:underline">Edit</a>
-                <a href="#" class="text-red-600 hover:underline">Delete</a>
+                <form action="{{ route('mahasiswa.destroy', $item->id) }}" method="DELETE">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  <button class="text-red-600 hover:underline">Delete</button>
+                </form>
               </td>
             </tr>
           @endforeach

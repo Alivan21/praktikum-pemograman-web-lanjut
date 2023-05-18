@@ -21,17 +21,15 @@ $(document).ready(function () {
     placeholder: $(this).data("placeholder"),
   });
 
-  $("#kelas").prop("disabled", true);
-
   // on change select jurusan
   $("#jurusan").on("change", function () {
     const id = $(this).val();
     const url = "/kelas/getKelasList/";
-    if (id == "Pilih Jurusan" || id == "") {
-      $("#kelas").prop("disabled", true);
+    if (id !== "Pilih Jurusan" || id !== "") {
+      $("#kelas").empty().prop("disabled", false);
+      onChangeSelect(url, id, "kelas");
+      console.log(id);
     }
-    $("#kelas").empty().prop("disabled", false);
-    onChangeSelect(url, id, "kelas");
-    console.log(id);
+    $("#kelas").prop("disabled", true);
   });
 });
