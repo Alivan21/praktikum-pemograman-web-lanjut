@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jurusan;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class MahasiswaController extends Controller
    */
   public function create()
   {
-    return view('mahasiswa.create');
+    $jurusan = Jurusan::all();
+    return view('mahasiswa.create', compact('jurusan'));
   }
 
   /**

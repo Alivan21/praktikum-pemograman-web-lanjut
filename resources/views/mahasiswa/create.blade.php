@@ -21,20 +21,20 @@
           <label for="jurusan" class="block mb-2 text-sm font-medium text-gray-900">
             Jurusan
           </label>
-          <select id="jurusan" name="jurusan"
-            class="bg-gray-50 border block w-full p-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500">
+          <select data-placeholder="Pilih Jurusan" id="jurusan" name="jurusan"
+            class="single-select-field bg-gray-50 border block w-full p-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500">
             <option selected>Pilih Jurusan</option>
-            <option value="D4 - Teknik Informatika">D4 - Teknik Informatika</option>
-            <option value="D4 - Sistem Informasi Bisnis">D4 - Sistem Informasi Bisnis</option>
+            @foreach ($jurusan as $item)
+              <option value="{{ $item->id }}">{{ $item->nama_jurusan }}</option>
+            @endforeach
           </select>
         </div>
         <div>
           <label for="kelas" class="block mb-2 text-sm font-medium text-gray-900">
             Kelas
           </label>
-          <select id="kelas" name="kelas"
-            class="bg-gray-50 border block w-full p-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500">
-            <option selected>Pilih Kelas</option>
+          <select data-placeholder="Pilih Kelas" id="kelas" name="kelas"
+            class="single-select-field bg-gray-50 border block w-full p-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500">
           </select>
         </div>
         <div>
