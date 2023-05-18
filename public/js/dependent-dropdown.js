@@ -27,6 +27,9 @@ $(document).ready(function () {
   $("#jurusan").on("change", function () {
     const id = $(this).val();
     const url = "/kelas/getKelasList/";
+    if (id == "Pilih Jurusan" || id == "") {
+      $("#kelas").prop("disabled", true);
+    }
     $("#kelas").empty().prop("disabled", false);
     onChangeSelect(url, id, "kelas");
     console.log(id);
