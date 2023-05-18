@@ -14,8 +14,8 @@
     <div class="font-medium text-lg">
       <p>Nama&emsp;: test</p>
       <p>NIM &emsp;&emsp;: test</p>
-      <p>Kelas&ensp;&emsp;: test</p>
       <p>Jurusan : test</p>
+      <p>Kelas&ensp;&emsp;: test</p>
     </div>
     <div class="relative overflow-x-auto">
       <table class="rounded border w-full text-sm text-left text-gray-700">

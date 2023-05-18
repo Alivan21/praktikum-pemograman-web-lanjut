@@ -11,7 +11,8 @@
     </div>
     <hr>
     <div class=" p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8">
-      <form class="space-y-6 flex flex-col" action="#">
+      <form class="space-y-6 flex flex-col" action="{{ route('mahasiswa.store') }}" method="POST">
+        @csrf
         <h5 class="text-xl font-medium text-gray-900 dark:text-white">Tambah Mahasiswa</h5>
         <hr>
         <x-forms.input name="nim" type="text" label="NIM" placeholder="" />

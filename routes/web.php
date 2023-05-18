@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-  return view('mahasiswa.index');
-});
-
-Route::get('/detail', function () {
-  return view('mahasiswa.detail');
-});
-
-Route::get('/create', function () {
-  return view('mahasiswa.create');
+// Route::resource('/', MahasiswaController::class);
+Route::group(['prefix' => '/'], function () {
+  Route::get('/', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+  Route::get('/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
+  Route::post('/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+  Route::get('/{mahasiswa}/edit', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
+  Route::put('/{mahasiswa}/update', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+  Route::get('/{mahasiswa}/destroy', [MahasiswaController::class, 'destroy'])->name('mahasiswa.destroy');
 });
