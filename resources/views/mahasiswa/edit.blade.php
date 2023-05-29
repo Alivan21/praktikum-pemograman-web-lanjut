@@ -24,7 +24,7 @@
           <label for="jurusan" class="block mb-2 text-sm font-medium text-gray-900">
             Jurusan
           </label>
-          <select data-placeholder="Pilih Jurusan" id="jurusan" name="jurusan" disabled
+          <select data-placeholder="Pilih Jurusan" id="jurusan" name="jurusan_id" disabled
             class="single-select-field bg-gray-50 border block w-full p-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500">
             @foreach ($jurusan as $item)
               <option {{ $mahasiswa->jurusan->id == $item->id ? 'selected' : '' }}
@@ -37,7 +37,7 @@
           <label for="kelas" class="block mb-2 text-sm font-medium text-gray-900">
             Kelas
           </label>
-          <select data-placeholder="Pilih Kelas" id="kelas" name="kelas"
+          <select data-placeholder="Pilih Kelas" id="kelas" name="kelas_id"
             class="single-select-field bg-gray-50 border block w-full p-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500">
             @foreach ($kelas as $item)
               <option {{ $mahasiswa->kelas->id == $item->id ? 'selected' : '' }}

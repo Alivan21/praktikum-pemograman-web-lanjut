@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\MahasiswaMatakuliah;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,6 +26,8 @@ class DatabaseSeeder extends Seeder
       JurusanSeeder::class,
       KelasSeeder::class,
       MahasiswaSeeder::class,
+      MatakuliahSeeder::class,
+      MahasiswaMatakuliahSeeder::class,
     ]);
   }
 }
