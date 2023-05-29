@@ -18,17 +18,20 @@ class MahasiswaSeeder extends Seeder
     Mahasiswa::create([
       'nim' => '2141720011',
       'nama_mahasiswa' => 'Muhammad Rizqi Mahendra',
+      'jurusan_id' => 1,
       'kelas_id' => 1,
     ]);
     Mahasiswa::create([
       'nim' => '2141720012',
       'nama_mahasiswa' => 'Alfan Alivan',
+      'jurusan_id' => 1,
       'kelas_id' => 3,
     ]);
     Mahasiswa::create([
       'nim' => '2141720015',
       'nama_mahasiswa' => 'Rafif Bilqisty',
-      'kelas_id' => 2,
+      'jurusan_id' => 2,
+      'kelas_id' => 4,
     ]);
   }
 }

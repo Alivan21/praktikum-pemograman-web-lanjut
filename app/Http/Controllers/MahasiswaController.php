@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MahasiswaRequest;
 use App\Models\Jurusan;
+use App\Models\Kelas;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,7 @@ class MahasiswaController extends Controller
   public function index()
   {
     $mahasiswas = Mahasiswa::all();
+    // dd($mahasiswas);
     return view('mahasiswa.index', compact('mahasiswas'));
   }
 
@@ -51,7 +53,7 @@ class MahasiswaController extends Controller
    */
   public function show(Mahasiswa $mahasiswa)
   {
-    //
+    return view('mahasiswa.detail', compact('mahasiswa'));
   }
 
   /**
@@ -62,7 +64,9 @@ class MahasiswaController extends Controller
    */
   public function edit(Mahasiswa $mahasiswa)
   {
-    //
+    $jurusan = Jurusan::all();
+    $kelas = Kelas::where('jurusan_id', $mahasiswa->jurusan_id)->get();
+    return view('mahasiswa.edit', compact('mahasiswa', 'jurusan', 'kelas'));
   }
 
   /**
@@ -72,9 +76,10 @@ class MahasiswaController extends Controller
    * @param  \App\Models\Mahasiswa  $mahasiswa
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Mahasiswa $mahasiswa)
+  public function update(MahasiswaRequest $request, Mahasiswa $mahasiswa)
   {
-    //
+    Mahasiswa::find($mahasiswa->id)->update($request->validated());
+    return redirect()->route('mahasiswa.index')->with('success', 'Mahasiswa berhasil diupdate!');
   }
 
   /**

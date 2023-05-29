@@ -26,7 +26,8 @@ class MahasiswaRequest extends FormRequest
     return [
       'nim' => 'required|unique:mahasiswa,nim|numeric|digits:10',
       'nama_mahasiswa' => 'required',
-      'kelas_id' => 'required',
+      'jurusan_id' => 'required',
+      'kelas_id' => 'required'
     ];
   }
 }

@@ -10,6 +10,7 @@ class Kelas extends Model
   use HasFactory;
 
   protected $table = 'kelas';
+  protected $with = ['jurusan'];
 
   public function jurusan()
   {

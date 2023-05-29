@@ -41,14 +41,16 @@
                 {{ $item->nama_mahasiswa }}
               </td>
               <td class="px-6 py-4 ">
-                {{ $item->kelas->jurusan->nama_jurusan }}
+                {{ $item->jurusan->nama_jurusan }}
               </td>
               <td class="px-6 py-4">
                 {{ $item->kelas->nama_kelas }}
               </td>
               <td class="px-6 py-4 flex gap-2 font-semibold">
-                <a href="#" class="text-blue-600 hover:underline">Show</a>
-                <a href="#" class="text-yellow-400 hover:underline">Edit</a>
+                <a href="{{ route('mahasiswa.show', $item->id) }}"
+                  class="text-blue-600 hover:underline">Show</a>
+                <a href="{{ route('mahasiswa.edit', $item->id) }}"
+                  class="text-yellow-400 hover:underline">Edit</a>
                 <form action="{{ route('mahasiswa.destroy', $item->id) }}" method="DELETE">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <button class="text-red-600 hover:underline">Delete</button>
