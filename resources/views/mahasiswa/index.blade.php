@@ -32,7 +32,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($mahasiswas as $item)
+          @forelse ($mahasiswas as $item)
             <tr class="bg-white border-b text-gray-900 font-medium whitespace-nowrap">
               <td class="px-6 py-4">
                 {{ $item->nim }}
@@ -57,7 +57,13 @@
                 </form>
               </td>
             </tr>
-          @endforeach
+          @empty
+            <tr class="bg-white border-b text-gray-900 font-medium whitespace-nowrap">
+              <td colspan="5" class="px-6 py-4 text-center">
+                <span class="font-semibold text-xl">Mahasiswa tidak ditemukan</span>
+              </td>
+            </tr>
+          @endforelse
         </tbody>
       </table>
     </div>

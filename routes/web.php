@@ -25,4 +25,5 @@ Route::group(['prefix' => '/'], function () {
   Route::get('/edit/{mahasiswa}', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
   Route::put('/update/{mahasiswa}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
   Route::get('/destroy/{mahasiswa}', [MahasiswaController::class, 'destroy'])->name('mahasiswa.destroy');
+  Route::get('/search', [MahasiswaController::class, 'search'])->name('mahasiswa.search');
 });

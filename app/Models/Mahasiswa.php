@@ -27,4 +27,9 @@ class Mahasiswa extends Model
   {
     return $this->hasMany(mahasiswaMatakuliah::class);
   }
+
+  public static function search($name)
+  {
+    return self::where('nama_mahasiswa', 'like', '%' . $name . '%')->get();
+  }
 }

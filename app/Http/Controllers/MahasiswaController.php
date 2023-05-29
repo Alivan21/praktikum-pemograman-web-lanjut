@@ -96,4 +96,11 @@ class MahasiswaController extends Controller
     $mahasiswa->delete();
     return redirect()->route('mahasiswa.index')->with('delete', 'Mahasiswa berhasil dihapus');
   }
+
+  public function search(Request $request)
+  {
+    $name = $request->input('search');
+    $mahasiswas = Mahasiswa::search($name);
+    return view('mahasiswa.index', compact('mahasiswas'));
+  }
 }
