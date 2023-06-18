@@ -9,6 +9,7 @@ use App\Models\Kelas;
 use App\Models\Mahasiswa;
 use App\Models\MahasiswaMatakuliah;
 use Illuminate\Http\Request;
+use \Barryvdh\DomPDF\Facade\Pdf;
 
 class MahasiswaController extends Controller
 {
@@ -102,5 +103,13 @@ class MahasiswaController extends Controller
     $name = $request->input('search');
     $mahasiswas = Mahasiswa::search($name);
     return view('mahasiswa.index', compact('mahasiswas'));
+  }
+
+  public function print(Mahasiswa $mahasiswa)
+  {
+    $mahasiswaMatakuliah = MahasiswaMatakuliah::where('mahasiswa_id', $mahasiswa->id)->get();
+    $pdf = PDF::loadview('mahasiswa.print', compact('mahasiswa', 'mahasiswaMatakuliah'));
+    return $pdf->download('laporan-mahasiswa.pdf');
+    // return view('mahasiswa.print', compact('mahasiswa', 'mahasiswaMatakuliah'));
   }
 }

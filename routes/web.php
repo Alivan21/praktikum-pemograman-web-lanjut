@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 // Route::resource('/', MahasiswaController::class);
 Route::group(['prefix' => '/'], function () {
-  Route::get('/kelas/getKelasList/{id}', [KelasDropdownController::class, 'getKelas'])->name('kelas.getKelasList');
   Route::get('/', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
   Route::get('/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
   Route::post('/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
@@ -26,4 +25,6 @@ Route::group(['prefix' => '/'], function () {
   Route::put('/update/{mahasiswa}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
   Route::get('/destroy/{mahasiswa}', [MahasiswaController::class, 'destroy'])->name('mahasiswa.destroy');
   Route::get('/search', [MahasiswaController::class, 'search'])->name('mahasiswa.search');
+  Route::get('/kelas/getKelasList/{id}', [KelasDropdownController::class, 'getKelas'])->name('kelas.getKelasList');
+  Route::get('/detail/print/{mahasiswa}', [MahasiswaController::class, 'print'])->name('mahasiswa.print');
 });
